@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="corpo">
+
+    <p id="texto">Texto vai ser alterado</p>
+    <button id="mudarTexto" onclick="mudarTexto()">Mudar Texto</button>
+
+    <button onclick="mudarFundo()">Mudar fundo</button>
+
+    <ul id="lista">
+        <li>Tomate</li>
+        <li>Maça</li>
+    </ul>
+    <button onclick="add()">Adicionar a Lista</button>
+
+    <p id="paragrafo">Este paragrafo vai ser removido...</p>
+    <button onclick="remover()">Remover</button>
+
+    <h1 id="titulo">Titulo</h1>
+    <p id="texto1">Texto</p>
+    <button onclick="mudarEstilo()">Persolalizar</button>
+
+    <label for="Digite um texto "></label>
+    <input type="text" id="text" oninput="mostrarTexto()">
+    <p id="resposta"></p>
+
+
+    <button id="botaomudaTexto" onmouseover="textoMudado()">Passe o Mouse</button>
+
+    <p id="textoEsconder">Esse texto vai sumir...</p>
+    <button id="btnEsconder">Clique duas vezes para esconder</button>
+
+    <p id="textoFonte">Texto com fonte que muda de tamanho!</p>
+    <button id="btnFonte">Alterar fonte</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
