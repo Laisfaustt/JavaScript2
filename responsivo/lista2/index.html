@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Imagens Dinâmicas</title>
+
+    <style>
+        #banner {
+            width: 100%;
+            max-width: 800px;
+            display: block;
+            margin: 0 auto 30px;
+        }
+
+        #lampada {
+            display: block;
+            margin: 20px auto;
+            cursor: pointer;
+            width: 150px;
+        }
+
+        #img {
+            display: none;
+            margin-top: 20px;
+            max-width: 300px;
+        }
+
+        #perfil {
+            display: block;
+            width: 150px;
+            border-radius: 100%;
+        }
+
+        #pequena{
+            width: 100px;
+            cursor: pointer;
+        }
+
+        #banner{
+            width: 100%;
+            max-width: 800px;
+            display: block;
+            margin: 30px auto 0;
+        }
+
+        
+
+
+
+
+    </style>
+</head>
+<body>
+
+<!-- 1 -->
+    <h1>O banner vai trocar</h1>
+        <img id="banner" src="emojisorriso.png" alt="">
+
+<!-- 2 -->
+        <img id="lampada" src="luzapagada.png" alt="" >
+
+<!-- 3 -->
+    <button id="botao">Mostrar/Esconder</button>
+        <img id="img" src="cachorro1.png" alt="">
+
+<!-- 4 -->
+    <img id="perfil" src="pessoa1.jpg" alt="">
+    <button id="trocar">trocar perfil</button>
+
+<!-- 5 -->
+    <img class="pequena" src="unha1.jpg" alt="">
+    <img class="pequena" src="unha2.jpg" alt="">
+    <img class="pequena" src="unha3.jpg" alt="" >
+
+
+
+<!-- 6 -->
+    <img id="Banner" src="banner.jpg" alt="">
+
+<!-- 7 -->
+    <button id="anterior">anterior</button>
+        <img id="carrossel" src="bolabasquete.webp" alt="" style="width:200px;vertical-align:middle;">
+    <button id="proxima">proxima</button>
+
+
+<script>
+    //1
+    const banner = document.getElementById("banner");
+    function trocaImg(){
+        if(window.innerWidth < 600){
+            banner.src = "emojicoracao.webp";
+        } else {
+            banner.src = "emojisorriso.png";
+        }
+    }
+    trocaImg();
+    window.addEventListener("resize", trocaImg);
+
+    //2
+    const lampada = document.getElementById("lampada");
+    let acesa = false;
+    lampada.addEventListener("click", () => {
+        if (acesa) {
+            lampada.src = "luzapagada.png";
+        } else {
+            lampada.src = "luzacesa.png";
+        }
+        acesa = !acesa;
+    });
+
+    //3
+    const botao = document.getElementById("botao");
+    const img = document.getElementById("img");
+    botao.addEventListener("click", () => {
+        if (img.style.display === "none") {
+            img.style.display = "block";
+        } else {
+            img.style.display = "none";
+        }
+    });
+
+    //4
+    const perfil = document.getElementById("perfil");
+    const trocar = document.getElementById("trocar");
+    let perfil1 = true;
+
+    trocar.addEventListener("click", () => {
+        if (perfil1) {
+            perfil.src = "pessoa2.jpg";
+        } else {
+            perfil.src = "pessoa1.jpg";
+        }
+        perfil1 = !perfil1;
+    });
+
+    //5
+   const imagensPequenas = document.querySelectorAll('.pequena');
+        imagensPequenas.forEach(img => {
+            img.addEventListener('click', () => {
+                imagensPequenas.forEach(i => {
+                    i.style.width = '100px';
+                    i.style.transition = 'width 0.2s';
+                });
+                img.style.width = '300px';
+            });
+        });
+
+
+
+   //6 
+   const Banner = document.getElementById("Banner");
+    function trocaBanner() {
+        if (window.innerWidth < 600) {
+            Banner.src = "banner.jpg";
+        } else if (window.innerWidth < 1024) {
+            Banner.src = "banner.jpg";
+        } else {
+            Banner.src = "banner.jpg";
+        }
+    }
+    trocaBanner();
+    window.addEventListener("resize", trocaBanner);
+
+    //7
+    const imagens = ["bolabasquete.webp", "bolafutebol.jpeg", "bolavolei.webp"];
+    let indice = 0;
+    const carrossel = document.getElementById("carrossel");
+    document.getElementById("anterior").onclick = () => {
+        indice = (indice - 1 + imagens.length) % imagens.length;
+        carrossel.src = imagens[indice];
+    };
+    document.getElementById("proxima").onclick = () => {
+        indice = (indice + 1) % imagens.length;
+        carrossel.src = imagens[indice];
+    };
+
+</script>
+</body>
+</html>

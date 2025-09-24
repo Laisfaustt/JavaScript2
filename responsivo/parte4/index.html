@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h1>O banner vai trocar</h1>
+     <img id="banner" src="emojisorriso.png" alt="">
+
+     <script>
+        const banner = document.getElementById("banner")
+        
+        function trocaImg(){
+           if(window.innerWidth < 600){
+            banner.src = "emojicoracao.webp"
+           } else {
+            banner.src = "emojisorriso.png"
+           }
+        }
+        trocaImg()
+        window.addEventListener("resize", trocaImg)
+
+     </script>
+
+
+
+
+
+</body>
+</html>
